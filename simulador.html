@@ -1,0 +1,629 @@
+<html class="no-js" lang="es-LA">
+<head>
+<meta charset="iso-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador De Préstamos</title>
+		
+<!-- Favicon -->
+<link href="img/favicon.png" rel="icon">
+ 
+
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+
+<style>
+
+
+
+body {
+	background-color:#edf8ff;
+	font-family:Arial;
+	font-size:11px;
+}
+
+
+.tablemain tr:hover td{
+   background: rgba(0,0,0,0.05);
+}
+
+.tablemain tr td{
+  padding: 6px 0px;
+}
+
+
+#btnstartpage{
+
+    width: 35px;
+    color: #fff;
+    /* padding: 10px 20px; */
+    position: fixed;
+    right: 20px;
+    /* height: 40px; */
+    border-radius: 50%;
+    background: #30b530;
+    bottom: 21px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transition: all 0.5s;
+    text-align: center;
+    height: 38px;
+
+}
+
+#btnstartpage:hover{
+
+    font-size: 33px;
+    transform: rotate(270deg);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);    
+    transition: all 0.5s;
+}
+
+
+
+#alerta{
+  
+  cursor: pointer;
+    z-index: 10;
+    width: 250px;
+    padding-top: 20px !important;
+    border-radius: 10px;
+    padding: 10px 5px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background: rgba(0, 0, 0, 0.63);
+    padding-right: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+#alerta:hover{
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+#alerta .btncerrar{
+	background: rgba(0,0,0,0.4);
+    top: 1px;
+    font-size: 20px;
+    position: absolute;
+    right: 3px;
+    border-radius: 50%;
+    padding: 2px 7px;
+    cursor: pointer;
+}
+
+#mensajealerta{
+  font-size: 16px;
+
+}
+
+
+
+#idmonto {
+	border-radius: 6px;
+	height: 40px;
+	width: 200px;
+	font-size: 25px;
+	outline:none;
+
+	
+}
+#idmonto:hover {
+	border: 2px solid rgba(6,123,0,0.59);
+	
+}
+
+#idtasa {
+	border-radius: 6px;
+	height: 40px;
+	width: 200px;
+	font-size: 25px;
+	outline:none;
+}
+#idtasa:hover {
+	border: 2px solid rgba(6,123,0,0.59);
+	
+}
+#idplazo {
+	border-radius: 6px;
+	height: 40px;
+	width: 200px;
+	font-size: 25px;
+	outline:none;
+}
+#idplazo:hover {
+	border: 2px solid rgba(6,123,0,0.59);
+	
+}
+#titulo
+{
+	font-family:Arial, Verdana;
+	font-size:24px;
+	color:#333333;
+	font-weight:bold;
+	height:40px;
+	padding-bottom:15px;
+	border-bottom:1px solid #ccc;
+	width:600px;
+}
+
+.subtitulo
+{
+	font-family:Arial, Verdana;
+	font-size:13px;
+	color: #666666;
+	margin-left: 20px;
+}
+
+.celeste
+{
+	font-family:Arial, Verdana;
+	background-color:#E2F3FB;
+	font-weight:bold;
+	color:#76777A;
+}
+
+.inputBox
+{
+	font-family:Arial, Verdana;
+	font-size:16px;
+	border:1px solid #ccc;
+	width:220px;
+	padding:3px;
+	height:15px;
+	text-align:right;
+}
+
+.tableGral
+{
+	font-family:Arial, Verdana;
+	border:1px solid #ccc;
+	width:100%;
+	font-size:14px;
+}
+
+.tableGral td
+{
+	padding:10px 5px 10px 30px;
+	width:50%;
+}
+
+
+.btnRest
+{
+
+    min-width: 100px;
+    font-size: 19px;
+    width: 101px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: #ff9f22;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+
+}
+
+.btnCalcu
+{
+
+    min-width: 100px;
+    font-size: 19px;
+    /* width: 80px; */
+    height: 30px;
+    border-radius: 6px;
+    background-color: #009e00;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.encabezadoSimulador
+{
+	font-family:Arial, Verdana;
+	font-size:17px;
+	background-color:#d9f9d9;
+	padding:3px;
+	font-weight:bold;
+}
+.encabezadoSimulador td
+{
+	border-right:1px solid #ccc;
+}
+
+.borTab
+{
+    color: #272727;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+    height: 23px;
+    width: 15%;
+}
+.inputBox2
+{
+	font-family:Arial, Verdana;
+	border:1px solid #ccc;
+	width:220px;
+	height:21px;
+	font-size:13px;
+	color:#000;
+	text-align:right;
+}
+.table2
+{
+    margin-left: 20px;
+    font-family: Arial, Verdana;
+    font-size: 14px;
+    color: #008000;
+    border: 1px solid #ccc;
+    width: 470px;
+    font-weight: bold;
+    border-left: 3px solid #008000;
+}
+.callToAction{
+	background:url("/colombia/common/imgs/general/linkMoreInfo.gif") no-repeat scroll 0 5px transparent;
+	color:#339900;
+	font-size:13px;
+	font-weight:bold;
+	padding-left:10px;
+}
+
+.callToAction a{
+	color:#339900;
+}
+
+#contenedor {
+    position: relative;
+    margin: auto;
+    top: 30px;
+    width: 800px;
+    background-color: #fff;
+border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+	
+</style>
+
+
+
+
+<script language="JavaScript">
+<!--
+
+var showpanel;
+var closepanel;
+
+
+window.addEventListener('load',inicio);
+
+	function inicio(){
+
+		document.getElementById('btnstartpage').addEventListener('click',subir);
+
+		document.getElementById('alerta').addEventListener('click',function(){
+			closepanel();
+		});	
+
+
+	function subir(){
+  		window.scrollTo(0,0);
+	}
+
+	function hidealert(){
+
+
+	var tiempo = setTimeout(closepanel,9000);
+
+	};
+	
+
+	showpanel = function(param){
+		document.getElementById('alerta').style.display = "block";
+		document.getElementById('mensajealerta').innerHTML = param;
+		hidealert();
+	};
+
+
+	closepanel = function(){
+
+		document.getElementById('alerta').style.display = "none";
+	};
+
+
+	closepanel();
+
+
+
+
+
+	}; // fun de funcion main
+
+
+
+function formatMiles(nro)
+{
+	//alert('esto le llega a la funcion: ' + nro);
+	nro=String(nro);
+	var num = nro.replace(/\./g,'');
+	if(!isNaN(num))
+	{
+		//alert('la variable num, es numero: ' + num);
+		num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+		num = num.split('').reverse().join('').replace(/^[\.]/,'');
+		//alert('la variable num, dentro de function: ' + num);
+		return num;
+	}
+	else { return false; }
+}
+
+
+
+
+
+
+
+
+function Calcular()
+	{
+		var arrMatriz = new Array(document.getElementById('idPlazo').value);
+		var strCadena, monto, tasa, plazo, interes, cuota, abonoCapital, saldo, i, seguro, cuotaYseg;
+
+		if ( document.getElementById('idMonto').value=='')
+		{
+			showpanel('Por favor, ingrese el monto del pr\u00E9stamo.');
+			document.getElementById('idMonto').focus();
+			return false;
+		}
+		else
+		{
+
+			if (document.getElementById('idMonto').value >= 1000000000000)
+			{
+				showpanel('El monto no debe ser mayor de 999999999999.99');
+				document.getElementById('idMonto').focus();
+				return false;
+			}
+			else
+			{
+
+				if (document.getElementById('idPlazo').value=='')
+				{
+					showpanel('Por favor, ingrese el plazo en meses.');
+					document.getElementById('idPlazo').focus();
+					return false;
+				}
+				else
+				{
+
+					if (document.getElementById('idPlazo').value > 180)
+					{
+						showpanel('El plazo en meses no debe ser mayor que 180.');
+						document.getElementById('idPlazo').focus();
+						return false;
+					}
+					else
+					{
+
+						if (document.getElementById('idTasa').value=='' )
+						{
+							showpanel('Por favor, ingrese la tasa de inter\u00E9s.');
+							document.getElementById('idTasa').focus();
+							return false;
+						}
+						else
+						{
+							if (document.getElementById('idTasa').value.indexOf(".") == -1) { document.getElementById('idTasa').value = document.getElementById('idTasa').value + ".00" ;}
+
+							// document.getElementById('idTasa').value < 0 || document.getElementById('idTasa').value > 1
+
+							if ( !document.getElementById('idTasa').value.match("^[0-9]{0,1}(\.[0-9]{1,2})?$") )
+							{
+								showpanel('Por favor, para la tasa de inter\u00E9s ingrese un valor entre 0 y 9.99 El valor puede tener hasta 2 decimales. Ej. 5.35');
+								document.getElementById('idTasa').focus();
+								return false;
+							}
+							else
+							{
+								strCadena="<TABLE cellpadding='0' cellspacing='0' border='0' width='100%' class='tablemain' style='text-align:center;border:1px solid #CCC;'><TR class='encabezadoSimulador'> <TD>Per&iacute;odo</TD> <TD>Saldo Inicial</TD> <TD>Intereses</TD> <TD>Abono a Capital</TD> <TD>Cuota</TD> <TD>Saldo Final</TD></TR>";
+
+
+								for(i=0;i<document.getElementById('idPlazo').value;i++)
+								{
+									arrMatriz[i]=new Array(6);
+								}
+								monto=document.getElementById('idMonto').value;
+								tasa=document.getElementById('idTasa').value/100;
+								plazo=document.getElementById('idPlazo').value;
+								seguro=saldo;
+
+
+								interes=tasa*monto;
+								cuota=monto*(tasa*Math.pow((tasa+1),plazo))/(Math.pow((tasa+1),plazo)-1);
+								abonoCapital=cuota-interes;
+								saldo=monto-abonoCapital;
+								cuotaYseg=cuota;
+								seguro=(saldo);
+
+								for(i=0;i<document.getElementById('idPlazo').value;i++)
+								{
+									arrMatriz[i][0] = i+1;
+									arrMatriz[i][1] = Math.round(monto); //(Math.floor(monto*100))/100;
+									arrMatriz[i][2] = Math.round(interes); //(Math.floor(interes*100))/100;
+									arrMatriz[i][3] = Math.round(abonoCapital); //(Math.floor(abonoCapital*100))/100;
+									
+									arrMatriz[i][4] = Math.round(cuotaYseg); //(Math.floor(cuotaYseg*100))/100;
+                                    					arrMatriz[i][5] = Math.round(seguro);  //(Math.floor(seguro*100))/100;
+									monto=saldo;
+									interes=tasa*monto;
+									abonoCapital=cuota-interes;
+									saldo=monto-abonoCapital;
+									seguro=(saldo); //antes estaba: SALDO
+									cuotaYseg=cuota;
+
+								}
+
+								// ARREGLO PARA SEPARADOR DE MILES :
+
+								for(i=0;i<document.getElementById('idPlazo').value;i++)
+								{
+									arrMatriz[i][1]=formatMiles(arrMatriz[i][1]);
+									arrMatriz[i][2]=formatMiles(arrMatriz[i][2]);
+									arrMatriz[i][3]=formatMiles(arrMatriz[i][3]);
+									arrMatriz[i][4]=formatMiles(arrMatriz[i][4]);
+									arrMatriz[i][5]=formatMiles(arrMatriz[i][5]);
+								}
+
+
+								//alert('SIN puntos: ' + arrMatriz[4][1]);
+								//alert('CON puntos: ' + formatMiles(arrMatriz[4][1]));
+
+								for(i=0;i<document.getElementById('idPlazo').value;i++)
+								{
+									strCadena=strCadena+"<TR><TD class='borTab'>"+arrMatriz[i][0]+"</TD><TD class='borTab'>"+'$ '+arrMatriz[i][1]+"</TD><TD class='borTab'>"+'$ '+arrMatriz[i][2]+"</TD><TD class='borTab'>"+'$ '+arrMatriz[i][3]+"</TD><TD class='borTab'>"+'$ '+arrMatriz[i][4]+"</TD><TD class='borTab'>"+'$ '+arrMatriz[i][5]+"</TD></TR>";
+								}
+
+								strCadena=strCadena+"</TABLE>";
+								document.getElementById('idResultado').innerHTML=strCadena;
+								//alert(strCadena);
+							}
+
+						}
+
+					}
+				}
+
+		     	}
+
+		}
+	}
+
+
+	function redondeo2decimales(numero)
+	{
+		var original=parseFloat(numero);
+		var result=Math.round(original*100)/100 ;
+		return result;
+	}
+
+	function acceptNum(evt)
+	{
+
+		var nav4 = window.Event ? true : false;
+		// NOTE: Backspace = 8, Enter = 13, '0' = 48, '9' = 57
+		var key = nav4 ? evt.which : evt.keyCode;
+		return ( (key >= 48 && key <= 57) || key == 46 || key == 8 || key == 127);
+	}
+
+
+
+-->
+
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+<div draggable="true" id="btnstartpage">&#187</div>
+
+<div draggable="true" id="alerta"> 
+  <div>
+	<div class="btncerrar">x</div>
+	<div id="mensajealerta">This is a message</div>
+  </div>
+
+</div>
+
+
+
+<img src="img/logo.JPG" class="logo_simulador" alt="logo_abogados" width="200" height="100">
+
+<div class="col-md-8 col-sm-9 col-xs-12">
+    <div class="menu">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            
+        </ul>
+        
+    </div>
+
+<div id="contenedor">
+<table cellpadding="5" cellspacing="3" border="0" width="673">
+	<tbody><tr>
+		<td><p><span id="titulo">Alexander González & Abogados Asesores</span></p></td>
+	</tr>
+</tbody></table>
+
+<p class="subtitulo">Calcule la cuota mensual aproximada de su crédito.</p>
+
+
+<!-- ======================================================================================================== -->
+
+<form id="forma1">
+
+<table cellpadding="5" cellspacing="3" class="table2" border="0">
+	<tbody><tr>
+		<td>Valor del préstamo</td>
+		<td style="text-align:right;"><input id="idMonto" onpaste="return false" class="inputBox2" onmouseover="this.style.textAlign='center';" onkeypress="return acceptNum(event);"></td>
+	</tr>
+	<tr>
+		<td>Plazo (en meses)</td>
+
+		<td style="text-align:right;"><input id="idPlazo" onpaste="return false" onkeypress="return acceptNum(event);" class="inputBox2" onmouseover="this.style.textAlign='center';"></td>
+	</tr>
+	<tr>
+		<td>Tasa de interés </td>
+		<td style="text-align:right;"><input id="idTasa" onpaste="return false" class="inputBox2" onmouseover="this.style.textAlign='center';" onkeypress="return acceptNum(event);"></td>
+	</tr>
+</tbody></table>
+<br>
+<table cellpadding="0" cellspacing="0" border="0" width="470px">
+	<tbody><tr>
+
+		<td width="235px">&nbsp;</td>
+		<td align="left">
+			<input id="idCalcular" type="button" onclick="Calcular();" value="Calcular" class="btnCalcu">
+		</td>
+		<td align="right" style="padding-right:10px;">
+			<input type="reset" value="Resetear" name="R2" class="btnRest" onclick="document.getElementById('idResultado').innerHTML='';">
+		</td>
+	</tr>
+</tbody></table>
+
+<!-- ======================================================================================================== -->
+<br><br>
+<div id="idResultado"></div>
+
+</form>
+<table cellpadding="5" cellspacing="3" border="0" width="709">
+	<tbody><tr>
+		<!--<td style="text-align:right;"><a href="Javascript:self.close();"><input id="btncerrar" type="button" value="cerrar"></td> -->
+	</tr>
+</tbody></table>
+
+<br><br>
+<script type="text/javascript" src="/resources/js/libs/citi_s_codeB.js"></script>
+<script type="text/javascript">
+		s.pageName ='Simulador plan de pagos prestamos';
+		s.eVar4 = "Simulador plan de pagos prestamos";
+		s.events="event17";
+		var s_code=s.t();if(s_code)document.write(s_code);
+</script>
+
+</div>
+</body>
+</html>
